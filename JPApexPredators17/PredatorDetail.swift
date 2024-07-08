@@ -26,13 +26,20 @@ struct PredatorDetail: View {
                         }
                     
                     //Dino image
-                    Image(predator.image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: geo.size.width/1.5, height: geo.size.height/3)
-                        .scaleEffect(x: -1)
-                        .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: 7)
-                        .offset(y: 20)
+                    NavigationLink {
+                        Image(predator.image)
+                            .resizable()
+                            .scaledToFit()                            .scaleEffect(x: -1)
+                            .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: 7)
+                    } label: {
+                        Image(predator.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: geo.size.width/1.5, height: geo.size.height/3)
+                            .scaleEffect(x: -1)
+                            .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: 7)
+                            .offset(y: 20)
+                    }
                 }
                 VStack(alignment: .leading) {
                     //Dino name
@@ -110,7 +117,7 @@ struct PredatorDetail: View {
 
 #Preview {
     NavigationStack {
-        PredatorDetail(predator: Predators().apexPredators[7], position: .camera(MapCamera(centerCoordinate: Predators().apexPredators[2].location, distance: 30000)))
+        PredatorDetail(predator: Predators().apexPredators[2], position: .camera(MapCamera(centerCoordinate: Predators().apexPredators[2].location, distance: 30000)))
             .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
     }
 }
